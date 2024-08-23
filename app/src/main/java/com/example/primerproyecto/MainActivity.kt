@@ -9,6 +9,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+
+    private val tasks = mutableListOf<Task>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,9 +26,8 @@ class MainActivity : AppCompatActivity() {
         val btnEnter = findViewById<Button>(R.id.btnEnter)
         val btnSee = findViewById<Button>(R.id.btnSee)
 
-        btnEnter.setOnClickListener() { navigateToList() }
-        btnSee.setOnClickListener() { navigateToResult() }
-
+        btnEnter.setOnClickListener { navigateToList() }
+        btnSee.setOnClickListener { navigateToResult() }
     }
 
     private fun navigateToList() {
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateToResult() {
         val intent = Intent(this, ResultActivity::class.java)
+        intent.putParcelableArrayListExtra("tasks", ArrayList(tasks))
         startActivity(intent)
     }
 }

@@ -3,4 +3,6 @@
 
     <string name="enterList">Ingresar a la lista</string>
     <string name="seeList">Ver la lista</string>
+    <string name="image_desc">Imagen seleccionada por el usuario</string>
+
 </resources>
