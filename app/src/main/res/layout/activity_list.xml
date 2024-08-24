@@ -64,11 +64,6 @@
             android:backgroundTint="@color/todo_accent"
             android:text="Agregar tarea" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTasks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

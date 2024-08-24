@@ -1,5 +1,6 @@
 package com.example.primerproyecto
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,11 +8,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var rvTasks: RecyclerView
     private lateinit var taskAdapter: TaskAdapter
+    private lateinit var fabAddTask: FloatingActionButton
     private val tasks = mutableListOf<Task>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +27,7 @@ class ResultActivity : AppCompatActivity() {
             insets
         }
 
+        fabAddTask = findViewById(R.id.fabAddTask)
         rvTasks = findViewById(R.id.rvTasks)
         taskAdapter = TaskAdapter(tasks)
         rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -34,6 +38,10 @@ class ResultActivity : AppCompatActivity() {
         taskList?.let {
             tasks.addAll(it)
             taskAdapter.notifyDataSetChanged()
+        }
+        fabAddTask.setOnClickListener {
+            val intent = Intent(this, ListActivity::class.java)
+            startActivity(intent)
         }
     }
 }
